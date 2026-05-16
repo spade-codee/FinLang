@@ -1,0 +1,413 @@
+---
+source: crates/finlang-parser/tests/snapshot.rs
+expression: result.items
+---
+[
+    LetDecl {
+        name: "face_a",
+        ty: Some(
+            Notional,
+        ),
+        value: Cast {
+            expr: Literal(
+                Float(
+                    1000.0,
+                ),
+                Span {
+                    start: 409,
+                    end: 415,
+                },
+            ),
+            ty: Notional,
+            span: Span {
+                start: 409,
+                end: 427,
+            },
+        },
+        span: Span {
+            start: 383,
+            end: 427,
+        },
+    },
+    LetDecl {
+        name: "coupon_a",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                0.05,
+            ),
+            Span {
+                start: 454,
+                end: 458,
+            },
+        ),
+        span: Span {
+            start: 428,
+            end: 458,
+        },
+    },
+    LetDecl {
+        name: "ytm_a",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                0.04,
+            ),
+            Span {
+                start: 485,
+                end: 489,
+            },
+        ),
+        span: Span {
+            start: 459,
+            end: 489,
+        },
+    },
+    LetDecl {
+        name: "bond_a_pv",
+        ty: Some(
+            Price,
+        ),
+        value: Call {
+            name: "bond_price",
+            args: [
+                Ident(
+                    "face_a",
+                    Span {
+                        start: 527,
+                        end: 533,
+                    },
+                ),
+                Ident(
+                    "coupon_a",
+                    Span {
+                        start: 535,
+                        end: 543,
+                    },
+                ),
+                Ident(
+                    "ytm_a",
+                    Span {
+                        start: 545,
+                        end: 550,
+                    },
+                ),
+                Literal(
+                    Int(
+                        10,
+                    ),
+                    Span {
+                        start: 552,
+                        end: 554,
+                    },
+                ),
+            ],
+            span: Span {
+                start: 516,
+                end: 555,
+            },
+        },
+        span: Span {
+            start: 490,
+            end: 555,
+        },
+    },
+    LetDecl {
+        name: "face_b",
+        ty: Some(
+            Notional,
+        ),
+        value: Cast {
+            expr: Literal(
+                Float(
+                    10000.0,
+                ),
+                Span {
+                    start: 583,
+                    end: 590,
+                },
+            ),
+            ty: Notional,
+            span: Span {
+                start: 583,
+                end: 602,
+            },
+        },
+        span: Span {
+            start: 557,
+            end: 602,
+        },
+    },
+    LetDecl {
+        name: "coupon_b",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                0.03,
+            ),
+            Span {
+                start: 629,
+                end: 633,
+            },
+        ),
+        span: Span {
+            start: 603,
+            end: 633,
+        },
+    },
+    LetDecl {
+        name: "ytm_b",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                0.035,
+            ),
+            Span {
+                start: 660,
+                end: 665,
+            },
+        ),
+        span: Span {
+            start: 634,
+            end: 665,
+        },
+    },
+    LetDecl {
+        name: "bond_b_pv",
+        ty: Some(
+            Price,
+        ),
+        value: Call {
+            name: "bond_price",
+            args: [
+                Ident(
+                    "face_b",
+                    Span {
+                        start: 703,
+                        end: 709,
+                    },
+                ),
+                Ident(
+                    "coupon_b",
+                    Span {
+                        start: 711,
+                        end: 719,
+                    },
+                ),
+                Ident(
+                    "ytm_b",
+                    Span {
+                        start: 721,
+                        end: 726,
+                    },
+                ),
+                Literal(
+                    Int(
+                        20,
+                    ),
+                    Span {
+                        start: 728,
+                        end: 730,
+                    },
+                ),
+            ],
+            span: Span {
+                start: 692,
+                end: 731,
+            },
+        },
+        span: Span {
+            start: 666,
+            end: 731,
+        },
+    },
+    LetDecl {
+        name: "portfolio",
+        ty: Some(
+            Price,
+        ),
+        value: BinOp {
+            op: Add,
+            lhs: Ident(
+                "bond_a_pv",
+                Span {
+                    start: 756,
+                    end: 765,
+                },
+            ),
+            rhs: Ident(
+                "bond_b_pv",
+                Span {
+                    start: 768,
+                    end: 777,
+                },
+            ),
+            span: Span {
+                start: 756,
+                end: 777,
+            },
+        },
+        span: Span {
+            start: 733,
+            end: 777,
+        },
+    },
+    LetDecl {
+        name: "shift",
+        ty: Some(
+            Rate,
+        ),
+        value: BinOp {
+            op: Div,
+            lhs: Cast {
+                expr: Literal(
+                    Float(
+                        1.0,
+                    ),
+                    Span {
+                        start: 837,
+                        end: 840,
+                    },
+                ),
+                ty: BasisPoints,
+                span: Span {
+                    start: 837,
+                    end: 856,
+                },
+            },
+            rhs: Literal(
+                Float(
+                    10000.0,
+                ),
+                Span {
+                    start: 859,
+                    end: 866,
+                },
+            ),
+            span: Span {
+                start: 837,
+                end: 866,
+            },
+        },
+        span: Span {
+            start: 814,
+            end: 866,
+        },
+    },
+    LetDecl {
+        name: "dv01",
+        ty: Some(
+            Price,
+        ),
+        value: BinOp {
+            op: Add,
+            lhs: Call {
+                name: "pv01",
+                args: [
+                    Ident(
+                        "face_a",
+                        Span {
+                            start: 895,
+                            end: 901,
+                        },
+                    ),
+                    Ident(
+                        "coupon_a",
+                        Span {
+                            start: 903,
+                            end: 911,
+                        },
+                    ),
+                    Ident(
+                        "ytm_a",
+                        Span {
+                            start: 913,
+                            end: 918,
+                        },
+                    ),
+                    Literal(
+                        Int(
+                            10,
+                        ),
+                        Span {
+                            start: 920,
+                            end: 922,
+                        },
+                    ),
+                ],
+                span: Span {
+                    start: 890,
+                    end: 923,
+                },
+            },
+            rhs: Call {
+                name: "pv01",
+                args: [
+                    Ident(
+                        "face_b",
+                        Span {
+                            start: 945,
+                            end: 951,
+                        },
+                    ),
+                    Ident(
+                        "coupon_b",
+                        Span {
+                            start: 953,
+                            end: 961,
+                        },
+                    ),
+                    Ident(
+                        "ytm_b",
+                        Span {
+                            start: 963,
+                            end: 968,
+                        },
+                    ),
+                    Literal(
+                        Int(
+                            20,
+                        ),
+                        Span {
+                            start: 970,
+                            end: 972,
+                        },
+                    ),
+                ],
+                span: Span {
+                    start: 940,
+                    end: 973,
+                },
+            },
+            span: Span {
+                start: 890,
+                end: 973,
+            },
+        },
+        span: Span {
+            start: 867,
+            end: 973,
+        },
+    },
+    ExprItem(
+        Ident(
+            "portfolio",
+            Span {
+                start: 975,
+                end: 984,
+            },
+        ),
+        Span {
+            start: 975,
+            end: 984,
+        },
+    ),
+]

@@ -1,0 +1,459 @@
+---
+source: crates/finlang-lexer/tests/snapshot.rs
+expression: tokens
+---
+- node: Let
+  span:
+    start: 331
+    end: 334
+- node:
+    Ident: spot
+  span:
+    start: 335
+    end: 339
+- node: Colon
+  span:
+    start: 339
+    end: 340
+- node: Price
+  span:
+    start: 343
+    end: 348
+- node: Eq
+  span:
+    start: 349
+    end: 350
+- node:
+    FloatLit: 105
+  span:
+    start: 351
+    end: 356
+- node: Let
+  span:
+    start: 357
+    end: 360
+- node:
+    Ident: strike
+  span:
+    start: 361
+    end: 367
+- node: Colon
+  span:
+    start: 367
+    end: 368
+- node: Price
+  span:
+    start: 369
+    end: 374
+- node: Eq
+  span:
+    start: 375
+    end: 376
+- node:
+    FloatLit: 100
+  span:
+    start: 377
+    end: 382
+- node: Let
+  span:
+    start: 383
+    end: 386
+- node:
+    Ident: vol
+  span:
+    start: 387
+    end: 390
+- node: Colon
+  span:
+    start: 390
+    end: 391
+- node: Rate
+  span:
+    start: 395
+    end: 399
+- node: Eq
+  span:
+    start: 401
+    end: 402
+- node:
+    FloatLit: 0.2
+  span:
+    start: 403
+    end: 407
+- node: Let
+  span:
+    start: 408
+    end: 411
+- node:
+    Ident: r
+  span:
+    start: 412
+    end: 413
+- node: Colon
+  span:
+    start: 413
+    end: 414
+- node: Rate
+  span:
+    start: 420
+    end: 424
+- node: Eq
+  span:
+    start: 426
+    end: 427
+- node:
+    FloatLit: 0.05
+  span:
+    start: 428
+    end: 432
+- node: Let
+  span:
+    start: 433
+    end: 436
+- node:
+    Ident: t
+  span:
+    start: 437
+    end: 438
+- node: Colon
+  span:
+    start: 438
+    end: 439
+- node: Years
+  span:
+    start: 445
+    end: 450
+- node: Eq
+  span:
+    start: 451
+    end: 452
+- node:
+    FloatLit: 0.5
+  span:
+    start: 453
+    end: 456
+- node: Let
+  span:
+    start: 458
+    end: 461
+- node:
+    Ident: call_price
+  span:
+    start: 462
+    end: 472
+- node: Colon
+  span:
+    start: 472
+    end: 473
+- node: Price
+  span:
+    start: 474
+    end: 479
+- node: Eq
+  span:
+    start: 480
+    end: 481
+- node:
+    Ident: black_scholes
+  span:
+    start: 482
+    end: 495
+- node: LParen
+  span:
+    start: 495
+    end: 496
+- node:
+    Ident: spot
+  span:
+    start: 496
+    end: 500
+- node: Comma
+  span:
+    start: 500
+    end: 501
+- node:
+    Ident: strike
+  span:
+    start: 502
+    end: 508
+- node: Comma
+  span:
+    start: 508
+    end: 509
+- node:
+    Ident: vol
+  span:
+    start: 510
+    end: 513
+- node: Comma
+  span:
+    start: 513
+    end: 514
+- node:
+    Ident: r
+  span:
+    start: 515
+    end: 516
+- node: Comma
+  span:
+    start: 516
+    end: 517
+- node:
+    Ident: t
+  span:
+    start: 518
+    end: 519
+- node: Comma
+  span:
+    start: 519
+    end: 520
+- node: Call
+  span:
+    start: 521
+    end: 525
+- node: RParen
+  span:
+    start: 525
+    end: 526
+- node: Let
+  span:
+    start: 527
+    end: 530
+- node:
+    Ident: delta
+  span:
+    start: 531
+    end: 536
+- node: Colon
+  span:
+    start: 536
+    end: 537
+- node: Rate
+  span:
+    start: 543
+    end: 547
+- node: Eq
+  span:
+    start: 549
+    end: 550
+- node:
+    Ident: bs_delta
+  span:
+    start: 551
+    end: 559
+- node: LParen
+  span:
+    start: 559
+    end: 560
+- node:
+    Ident: spot
+  span:
+    start: 560
+    end: 564
+- node: Comma
+  span:
+    start: 564
+    end: 565
+- node:
+    Ident: strike
+  span:
+    start: 566
+    end: 572
+- node: Comma
+  span:
+    start: 572
+    end: 573
+- node:
+    Ident: vol
+  span:
+    start: 574
+    end: 577
+- node: Comma
+  span:
+    start: 577
+    end: 578
+- node:
+    Ident: r
+  span:
+    start: 579
+    end: 580
+- node: Comma
+  span:
+    start: 580
+    end: 581
+- node:
+    Ident: t
+  span:
+    start: 582
+    end: 583
+- node: Comma
+  span:
+    start: 583
+    end: 584
+- node: Call
+  span:
+    start: 585
+    end: 589
+- node: RParen
+  span:
+    start: 589
+    end: 590
+- node: Let
+  span:
+    start: 591
+    end: 594
+- node:
+    Ident: gamma
+  span:
+    start: 595
+    end: 600
+- node: Colon
+  span:
+    start: 600
+    end: 601
+- node: Rate
+  span:
+    start: 607
+    end: 611
+- node: Eq
+  span:
+    start: 613
+    end: 614
+- node:
+    Ident: bs_gamma
+  span:
+    start: 615
+    end: 623
+- node: LParen
+  span:
+    start: 623
+    end: 624
+- node:
+    Ident: spot
+  span:
+    start: 624
+    end: 628
+- node: Comma
+  span:
+    start: 628
+    end: 629
+- node:
+    Ident: strike
+  span:
+    start: 630
+    end: 636
+- node: Comma
+  span:
+    start: 636
+    end: 637
+- node:
+    Ident: vol
+  span:
+    start: 638
+    end: 641
+- node: Comma
+  span:
+    start: 641
+    end: 642
+- node:
+    Ident: r
+  span:
+    start: 643
+    end: 644
+- node: Comma
+  span:
+    start: 644
+    end: 645
+- node:
+    Ident: t
+  span:
+    start: 646
+    end: 647
+- node: RParen
+  span:
+    start: 647
+    end: 648
+- node: Let
+  span:
+    start: 649
+    end: 652
+- node:
+    Ident: vega
+  span:
+    start: 653
+    end: 657
+- node: Colon
+  span:
+    start: 657
+    end: 658
+- node: Price
+  span:
+    start: 665
+    end: 670
+- node: Eq
+  span:
+    start: 671
+    end: 672
+- node:
+    Ident: bs_vega
+  span:
+    start: 673
+    end: 680
+- node: LParen
+  span:
+    start: 680
+    end: 681
+- node:
+    Ident: spot
+  span:
+    start: 681
+    end: 685
+- node: Comma
+  span:
+    start: 685
+    end: 686
+- node:
+    Ident: strike
+  span:
+    start: 687
+    end: 693
+- node: Comma
+  span:
+    start: 693
+    end: 694
+- node:
+    Ident: vol
+  span:
+    start: 695
+    end: 698
+- node: Comma
+  span:
+    start: 698
+    end: 699
+- node:
+    Ident: r
+  span:
+    start: 700
+    end: 701
+- node: Comma
+  span:
+    start: 701
+    end: 702
+- node:
+    Ident: t
+  span:
+    start: 703
+    end: 704
+- node: RParen
+  span:
+    start: 704
+    end: 705
+- node:
+    Ident: call_price
+  span:
+    start: 707
+    end: 717
+- node: Eof
+  span:
+    start: 718
+    end: 718

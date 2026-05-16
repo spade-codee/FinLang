@@ -1,0 +1,31 @@
+/target
+**/*.rs.bk
+Cargo.lock.bak
+*.pdb
+
+# REPL history
+.finlang_history
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Claude Code
+.claude/
+
+# Cargo-fuzz
+/fuzz/target
+/fuzz/corpus
+/fuzz/artifacts
+
+# Insta pending snapshots
+**/*.snap.new
+
+# AOT compile output
+*.o
+*.obj
+*.exe
+!crates/**/*.rs

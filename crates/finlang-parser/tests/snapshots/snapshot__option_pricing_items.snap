@@ -1,0 +1,344 @@
+---
+source: crates/finlang-parser/tests/snapshot.rs
+expression: result.items
+---
+[
+    LetDecl {
+        name: "spot",
+        ty: Some(
+            Price,
+        ),
+        value: Literal(
+            Float(
+                105.0,
+            ),
+            Span {
+                start: 351,
+                end: 356,
+            },
+        ),
+        span: Span {
+            start: 331,
+            end: 356,
+        },
+    },
+    LetDecl {
+        name: "strike",
+        ty: Some(
+            Price,
+        ),
+        value: Literal(
+            Float(
+                100.0,
+            ),
+            Span {
+                start: 377,
+                end: 382,
+            },
+        ),
+        span: Span {
+            start: 357,
+            end: 382,
+        },
+    },
+    LetDecl {
+        name: "vol",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                0.2,
+            ),
+            Span {
+                start: 403,
+                end: 407,
+            },
+        ),
+        span: Span {
+            start: 383,
+            end: 407,
+        },
+    },
+    LetDecl {
+        name: "r",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                0.05,
+            ),
+            Span {
+                start: 428,
+                end: 432,
+            },
+        ),
+        span: Span {
+            start: 408,
+            end: 432,
+        },
+    },
+    LetDecl {
+        name: "t",
+        ty: Some(
+            Years,
+        ),
+        value: Literal(
+            Float(
+                0.5,
+            ),
+            Span {
+                start: 453,
+                end: 456,
+            },
+        ),
+        span: Span {
+            start: 433,
+            end: 456,
+        },
+    },
+    LetDecl {
+        name: "call_price",
+        ty: Some(
+            Price,
+        ),
+        value: Call {
+            name: "black_scholes",
+            args: [
+                Ident(
+                    "spot",
+                    Span {
+                        start: 496,
+                        end: 500,
+                    },
+                ),
+                Ident(
+                    "strike",
+                    Span {
+                        start: 502,
+                        end: 508,
+                    },
+                ),
+                Ident(
+                    "vol",
+                    Span {
+                        start: 510,
+                        end: 513,
+                    },
+                ),
+                Ident(
+                    "r",
+                    Span {
+                        start: 515,
+                        end: 516,
+                    },
+                ),
+                Ident(
+                    "t",
+                    Span {
+                        start: 518,
+                        end: 519,
+                    },
+                ),
+                Literal(
+                    Call,
+                    Span {
+                        start: 521,
+                        end: 525,
+                    },
+                ),
+            ],
+            span: Span {
+                start: 482,
+                end: 526,
+            },
+        },
+        span: Span {
+            start: 458,
+            end: 526,
+        },
+    },
+    LetDecl {
+        name: "delta",
+        ty: Some(
+            Rate,
+        ),
+        value: Call {
+            name: "bs_delta",
+            args: [
+                Ident(
+                    "spot",
+                    Span {
+                        start: 560,
+                        end: 564,
+                    },
+                ),
+                Ident(
+                    "strike",
+                    Span {
+                        start: 566,
+                        end: 572,
+                    },
+                ),
+                Ident(
+                    "vol",
+                    Span {
+                        start: 574,
+                        end: 577,
+                    },
+                ),
+                Ident(
+                    "r",
+                    Span {
+                        start: 579,
+                        end: 580,
+                    },
+                ),
+                Ident(
+                    "t",
+                    Span {
+                        start: 582,
+                        end: 583,
+                    },
+                ),
+                Literal(
+                    Call,
+                    Span {
+                        start: 585,
+                        end: 589,
+                    },
+                ),
+            ],
+            span: Span {
+                start: 551,
+                end: 590,
+            },
+        },
+        span: Span {
+            start: 527,
+            end: 590,
+        },
+    },
+    LetDecl {
+        name: "gamma",
+        ty: Some(
+            Rate,
+        ),
+        value: Call {
+            name: "bs_gamma",
+            args: [
+                Ident(
+                    "spot",
+                    Span {
+                        start: 624,
+                        end: 628,
+                    },
+                ),
+                Ident(
+                    "strike",
+                    Span {
+                        start: 630,
+                        end: 636,
+                    },
+                ),
+                Ident(
+                    "vol",
+                    Span {
+                        start: 638,
+                        end: 641,
+                    },
+                ),
+                Ident(
+                    "r",
+                    Span {
+                        start: 643,
+                        end: 644,
+                    },
+                ),
+                Ident(
+                    "t",
+                    Span {
+                        start: 646,
+                        end: 647,
+                    },
+                ),
+            ],
+            span: Span {
+                start: 615,
+                end: 648,
+            },
+        },
+        span: Span {
+            start: 591,
+            end: 648,
+        },
+    },
+    LetDecl {
+        name: "vega",
+        ty: Some(
+            Price,
+        ),
+        value: Call {
+            name: "bs_vega",
+            args: [
+                Ident(
+                    "spot",
+                    Span {
+                        start: 681,
+                        end: 685,
+                    },
+                ),
+                Ident(
+                    "strike",
+                    Span {
+                        start: 687,
+                        end: 693,
+                    },
+                ),
+                Ident(
+                    "vol",
+                    Span {
+                        start: 695,
+                        end: 698,
+                    },
+                ),
+                Ident(
+                    "r",
+                    Span {
+                        start: 700,
+                        end: 701,
+                    },
+                ),
+                Ident(
+                    "t",
+                    Span {
+                        start: 703,
+                        end: 704,
+                    },
+                ),
+            ],
+            span: Span {
+                start: 673,
+                end: 705,
+            },
+        },
+        span: Span {
+            start: 649,
+            end: 705,
+        },
+    },
+    ExprItem(
+        Ident(
+            "call_price",
+            Span {
+                start: 707,
+                end: 717,
+            },
+        ),
+        Span {
+            start: 707,
+            end: 717,
+        },
+    ),
+]

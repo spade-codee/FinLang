@@ -1,0 +1,9 @@
+---
+source: crates/finlang-types/tests/error_render.rs
+expression: rendered
+---
+error[E003]: `black_scholes` expects 6 arguments, but 2 were supplied
+  ┌─ source.fin:3:1
+  │
+3 │ black_scholes(p, r)
+  │ ^^^^^^^^^^^^^^^^^^^ wrong number of arguments

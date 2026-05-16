@@ -1,0 +1,13 @@
+---
+source: crates/finlang-types/tests/error_render.rs
+expression: rendered
+---
+error[E001]: dimensional type mismatch: cannot add `price` and `rate`: incompatible financial dimensions
+  ┌─ source.fin:3:1
+  │
+3 │ spot + vol
+  │ ^^^^   --- rate
+  │ │       
+  │ price
+  │
+  = hint: did you mean to multiply? `spot * vol` gives `price`

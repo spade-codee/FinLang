@@ -1,0 +1,421 @@
+---
+source: crates/finlang-parser/tests/snapshot.rs
+expression: result.items
+---
+[
+    LetDecl {
+        name: "spot",
+        ty: Some(
+            Price,
+        ),
+        value: Literal(
+            Float(
+                100.0,
+            ),
+            Span {
+                start: 330,
+                end: 335,
+            },
+        ),
+        span: Span {
+            start: 309,
+            end: 335,
+        },
+    },
+    LetDecl {
+        name: "strike",
+        ty: Some(
+            Price,
+        ),
+        value: Literal(
+            Float(
+                100.0,
+            ),
+            Span {
+                start: 357,
+                end: 362,
+            },
+        ),
+        span: Span {
+            start: 336,
+            end: 362,
+        },
+    },
+    LetDecl {
+        name: "vol",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                0.2,
+            ),
+            Span {
+                start: 384,
+                end: 388,
+            },
+        ),
+        span: Span {
+            start: 363,
+            end: 388,
+        },
+    },
+    LetDecl {
+        name: "r",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                0.03,
+            ),
+            Span {
+                start: 410,
+                end: 414,
+            },
+        ),
+        span: Span {
+            start: 389,
+            end: 414,
+        },
+    },
+    LetDecl {
+        name: "t",
+        ty: Some(
+            Years,
+        ),
+        value: Literal(
+            Float(
+                0.25,
+            ),
+            Span {
+                start: 436,
+                end: 440,
+            },
+        ),
+        span: Span {
+            start: 415,
+            end: 440,
+        },
+    },
+    LetDecl {
+        name: "z_95",
+        ty: Some(
+            Rate,
+        ),
+        value: Literal(
+            Float(
+                1.645,
+            ),
+            Span {
+                start: 462,
+                end: 467,
+            },
+        ),
+        span: Span {
+            start: 441,
+            end: 467,
+        },
+    },
+    LetDecl {
+        name: "delta",
+        ty: Some(
+            Rate,
+        ),
+        value: Call {
+            name: "bs_delta",
+            args: [
+                Ident(
+                    "spot",
+                    Span {
+                        start: 499,
+                        end: 503,
+                    },
+                ),
+                Ident(
+                    "strike",
+                    Span {
+                        start: 505,
+                        end: 511,
+                    },
+                ),
+                Ident(
+                    "vol",
+                    Span {
+                        start: 513,
+                        end: 516,
+                    },
+                ),
+                Ident(
+                    "r",
+                    Span {
+                        start: 518,
+                        end: 519,
+                    },
+                ),
+                Ident(
+                    "t",
+                    Span {
+                        start: 521,
+                        end: 522,
+                    },
+                ),
+                Literal(
+                    Call,
+                    Span {
+                        start: 524,
+                        end: 528,
+                    },
+                ),
+            ],
+            span: Span {
+                start: 490,
+                end: 529,
+            },
+        },
+        span: Span {
+            start: 469,
+            end: 529,
+        },
+    },
+    LetDecl {
+        name: "one_day",
+        ty: Some(
+            Years,
+        ),
+        value: BinOp {
+            op: Div,
+            lhs: Literal(
+                Float(
+                    1.0,
+                ),
+                Span {
+                    start: 551,
+                    end: 554,
+                },
+            ),
+            rhs: Literal(
+                Float(
+                    252.0,
+                ),
+                Span {
+                    start: 557,
+                    end: 562,
+                },
+            ),
+            span: Span {
+                start: 551,
+                end: 562,
+            },
+        },
+        span: Span {
+            start: 530,
+            end: 562,
+        },
+    },
+    LetDecl {
+        name: "position",
+        ty: Some(
+            Notional,
+        ),
+        value: Cast {
+            expr: Literal(
+                Float(
+                    1000.0,
+                ),
+                Span {
+                    start: 648,
+                    end: 654,
+                },
+            ),
+            ty: Notional,
+            span: Span {
+                start: 648,
+                end: 666,
+            },
+        },
+        span: Span {
+            start: 623,
+            end: 666,
+        },
+    },
+    LetDecl {
+        name: "move_size",
+        ty: Some(
+            Rate,
+        ),
+        value: BinOp {
+            op: Mul,
+            lhs: Ident(
+                "vol",
+                Span {
+                    start: 692,
+                    end: 695,
+                },
+            ),
+            rhs: Ident(
+                "z_95",
+                Span {
+                    start: 698,
+                    end: 702,
+                },
+            ),
+            span: Span {
+                start: 692,
+                end: 702,
+            },
+        },
+        span: Span {
+            start: 667,
+            end: 702,
+        },
+    },
+    LetDecl {
+        name: "var_95",
+        ty: Some(
+            Price,
+        ),
+        value: BinOp {
+            op: Mul,
+            lhs: BinOp {
+                op: Mul,
+                lhs: Ident(
+                    "position",
+                    Span {
+                        start: 729,
+                        end: 737,
+                    },
+                ),
+                rhs: Ident(
+                    "delta",
+                    Span {
+                        start: 740,
+                        end: 745,
+                    },
+                ),
+                span: Span {
+                    start: 728,
+                    end: 746,
+                },
+            },
+            rhs: Ident(
+                "move_size",
+                Span {
+                    start: 749,
+                    end: 758,
+                },
+            ),
+            span: Span {
+                start: 728,
+                end: 758,
+            },
+        },
+        span: Span {
+            start: 703,
+            end: 758,
+        },
+    },
+    PortfolioDef {
+        name: "HedgedBook",
+        legs: [
+            PortfolioLeg {
+                direction: Long,
+                size: Cast {
+                    expr: Literal(
+                        Float(
+                            1000.0,
+                        ),
+                        Span {
+                            start: 791,
+                            end: 797,
+                        },
+                    ),
+                    ty: Notional,
+                    span: Span {
+                        start: 791,
+                        end: 809,
+                    },
+                },
+                instrument: "calls",
+                at_clauses: [
+                    (
+                        "strike",
+                        Cast {
+                            expr: Literal(
+                                Float(
+                                    100.0,
+                                ),
+                                Span {
+                                    start: 835,
+                                    end: 840,
+                                },
+                            ),
+                            ty: Price,
+                            span: Span {
+                                start: 835,
+                                end: 849,
+                            },
+                        },
+                    ),
+                ],
+                span: Span {
+                    start: 785,
+                    end: 849,
+                },
+            },
+            PortfolioLeg {
+                direction: Short,
+                size: Cast {
+                    expr: Literal(
+                        Float(
+                            500.0,
+                        ),
+                        Span {
+                            start: 859,
+                            end: 864,
+                        },
+                    ),
+                    ty: Notional,
+                    span: Span {
+                        start: 859,
+                        end: 876,
+                    },
+                },
+                instrument: "underlying",
+                at_clauses: [
+                    (
+                        "spot",
+                        Ident(
+                            "spot",
+                            Span {
+                                start: 893,
+                                end: 897,
+                            },
+                        ),
+                    ),
+                ],
+                span: Span {
+                    start: 852,
+                    end: 897,
+                },
+            },
+        ],
+        span: Span {
+            start: 760,
+            end: 899,
+        },
+    },
+    ExprItem(
+        Ident(
+            "var_95",
+            Span {
+                start: 901,
+                end: 907,
+            },
+        ),
+        Span {
+            start: 901,
+            end: 907,
+        },
+    ),
+]

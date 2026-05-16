@@ -1,0 +1,65 @@
+{
+  "name": "finlang",
+  "displayName": "FinLang",
+  "description": "Syntax highlighting and language server support for FinLang — a statically-typed compiled DSL for financial risk expressions.",
+  "version": "0.1.0",
+  "publisher": "finlang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finlang/finlang"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Programming Languages"],
+  "activationEvents": ["onLanguage:finlang"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "finlang",
+        "aliases": ["FinLang", "finlang"],
+        "extensions": [".fin"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "finlang",
+        "scopeName": "source.finlang",
+        "path": "./syntaxes/finlang.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "FinLang",
+      "properties": {
+        "finlang.server.path": {
+          "type": "string",
+          "default": "finlang-lsp",
+          "description": "Path to the finlang-lsp binary. The default expects the binary on PATH."
+        },
+        "finlang.trace.server": {
+          "type": "string",
+          "enum": ["off", "messages", "verbose"],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the FinLang language server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}

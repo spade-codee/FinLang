@@ -1,0 +1,11 @@
+---
+source: crates/finlang-types/tests/error_render.rs
+expression: rendered
+---
+error[E002]: argument 1 of `bond_price` has wrong type
+  ┌─ source.fin:3:12
+  │
+3 │ bond_price(r, r, r, n)
+  │            ^ expected `notional`, found `rate`
+  │
+  = argument 1 of `bond_price` must be `notional`

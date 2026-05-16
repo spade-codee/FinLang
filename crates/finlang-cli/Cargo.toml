@@ -1,0 +1,40 @@
+[package]
+name = "finlang-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "REPL and AOT compiler binary for FinLang"
+
+[[bin]]
+name = "finlang"
+path = "src/main.rs"
+
+[dependencies]
+finlang-lexer   = { workspace = true }
+finlang-parser  = { workspace = true }
+finlang-types   = { workspace = true }
+finlang-ir      = { workspace = true }
+finlang-codegen = { workspace = true }
+finlang-stdlib  = { workspace = true }
+
+clap            = { workspace = true }
+rustyline       = { workspace = true }
+colored         = { workspace = true }
+anyhow          = { workspace = true }
+thiserror       = { workspace = true }
+target-lexicon  = { workspace = true }
+
+[dev-dependencies]
+insta     = { workspace = true }
+criterion = { workspace = true }
+
+# The portfolio benchmark lives at the workspace root (benches/) per spec,
+# but Cargo requires benches to be declared in a package. The CLI crate
+# is the natural owner since the bench drives the full pipeline.
+[[bench]]
+name = "portfolio_bench"
+path = "../../benches/portfolio_bench.rs"
+harness = false

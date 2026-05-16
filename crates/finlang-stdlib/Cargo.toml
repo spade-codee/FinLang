@@ -1,0 +1,16 @@
+[package]
+name = "finlang-stdlib"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Native-Rust financial primitives callable from FinLang"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+libm      = { workspace = true }
+thiserror = { workspace = true }

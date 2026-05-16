@@ -1,0 +1,30 @@
+[package]
+name = "finlang-codegen"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Cranelift-based JIT and AOT backend for FinLang"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+finlang-lexer      = { workspace = true }
+finlang-parser     = { workspace = true }
+finlang-types      = { workspace = true }
+finlang-ir         = { workspace = true }
+finlang-stdlib     = { workspace = true }
+
+cranelift-codegen  = { workspace = true }
+cranelift-frontend = { workspace = true }
+cranelift-jit      = { workspace = true }
+cranelift-module   = { workspace = true }
+cranelift-object   = { workspace = true }
+cranelift-native   = { workspace = true }
+target-lexicon     = { workspace = true }
+
+thiserror          = { workspace = true }
+anyhow             = { workspace = true }

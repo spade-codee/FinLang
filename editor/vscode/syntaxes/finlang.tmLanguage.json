@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "FinLang",
+  "scopeName": "source.finlang",
+  "fileTypes": ["fin"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#constants" },
+    { "include": "#types" },
+    { "include": "#stdlib" },
+    { "include": "#operators" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.finlang",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.finlang",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.finlang",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        { "name": "constant.character.escape.finlang", "match": "\\\\." }
+      ]
+    },
+    "numbers": {
+      "name": "constant.numeric.finlang",
+      "match": "\\b\\d+(\\.\\d+)?([eE][+-]?\\d+)?\\b"
+    },
+    "keywords": {
+      "name": "keyword.control.finlang",
+      "match": "\\b(let|fn|if|else|match|for|in|return|as|portfolio|long|short|at)\\b"
+    },
+    "constants": {
+      "name": "constant.language.finlang",
+      "match": "\\b(true|false|Call|Put)\\b"
+    },
+    "types": {
+      "name": "storage.type.finlang",
+      "match": "\\b(price|rate|notional|date|years|basis_points|bool|int)\\b"
+    },
+    "stdlib": {
+      "name": "support.function.finlang",
+      "match": "\\b(black_scholes|bs_delta|bs_gamma|bs_vega|bs_theta|bs_rho|implied_vol|bond_price|bond_duration|pv01|discount_factor)\\b"
+    },
+    "operators": {
+      "name": "keyword.operator.finlang",
+      "match": "==|!=|<=|>=|&&|\\|\\||->|[+\\-*/%<>!=]"
+    },
+    "identifiers": {
+      "name": "variable.other.finlang",
+      "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+    }
+  }
+}

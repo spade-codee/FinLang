@@ -1,0 +1,26 @@
+[package]
+name = "finlang-parser"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Hand-written recursive-descent parser for FinLang"
+
+[lib]
+path = "src/lib.rs"
+
+[features]
+## Enable `serde::{Serialize, Deserialize}` derives on all AST and error types.
+serde = ["dep:serde", "finlang-lexer/serde"]
+
+[dependencies]
+finlang-lexer      = { workspace = true }
+codespan-reporting = { workspace = true }
+thiserror          = { workspace = true }
+serde              = { workspace = true, optional = true }
+
+[dev-dependencies]
+insta = { workspace = true }
+serde = { workspace = true }

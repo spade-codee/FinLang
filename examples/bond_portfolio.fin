@@ -1,0 +1,31 @@
+// bond_portfolio.fin
+//
+// Values a small treasury portfolio. Demonstrates:
+//   - notional × rate → price (coupon arithmetic)
+//   - basis_points / 10000 → rate (yield shift conversion)
+//   - the built-in bond_price / pv01 stdlib
+//
+// Reference values (semi-annual, 30/360 day count):
+//
+//   bond_a_pv   = 1041.575
+//   bond_b_pv   = 9587.123
+//   portfolio   = 10628.698
+
+let face_a:    notional = 1000.0 as notional
+let coupon_a:  rate     = 0.05
+let ytm_a:     rate     = 0.04
+let bond_a_pv: price    = bond_price(face_a, coupon_a, ytm_a, 10)
+
+let face_b:    notional = 10000.0 as notional
+let coupon_b:  rate     = 0.03
+let ytm_b:     rate     = 0.035
+let bond_b_pv: price    = bond_price(face_b, coupon_b, ytm_b, 20)
+
+let portfolio: price = bond_a_pv + bond_b_pv
+
+// 1bp parallel shift sensitivity.
+let shift:     rate  = 1.0 as basis_points / 10000.0
+let dv01:      price = pv01(face_a, coupon_a, ytm_a, 10)
+              + pv01(face_b, coupon_b, ytm_b, 20)
+
+portfolio

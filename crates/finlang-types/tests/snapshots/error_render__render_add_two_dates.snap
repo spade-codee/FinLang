@@ -1,0 +1,11 @@
+---
+source: crates/finlang-types/tests/error_render.rs
+expression: rendered
+---
+error[E001]: dimensional type mismatch: adding two dates is dimensionally invalid; subtract them instead
+  ┌─ source.fin:3:1
+  │
+3 │ d1 + d2
+  │ ^^   -- date
+  │ │     
+  │ date

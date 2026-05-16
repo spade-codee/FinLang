@@ -1,0 +1,28 @@
+---
+source: crates/finlang-ir/tests/lower_examples.rs
+expression: prog.to_string()
+---
+fn __main__() -> f64 {
+  bb0:
+    v0 = const.f64 100
+    v1 = const.f64 100
+    v2 = const.f64 0.2
+    v3 = const.f64 0.03
+    v4 = const.f64 0.25
+    v5 = const.f64 1.645
+    v6 = const.i64 0 ; Call
+    v7 = call finlang_bs_delta(v0, v1, v2, v3, v4, v6)
+    v8 = const.f64 1
+    v9 = const.f64 252
+    v10 = binop.div v8, v9
+    v11 = const.f64 1000
+    v12 = binop.mul v2, v5
+    v13 = binop.mul v11, v7
+    v14 = binop.mul v13, v12
+    return v14
+}
+fn __portfolio_HedgedBook__() -> f64 {
+  bb0:
+    v0 = const.f64 0
+    return v0
+}

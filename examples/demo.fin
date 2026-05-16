@@ -1,0 +1,17 @@
+// FinLang — dimensional types for financial code.
+//
+// `price`, `rate`, `years` are real types: adding a price to a rate
+// is a compile-time error, not a silent floating-point bug.
+
+let spot:   price = 105.0
+let strike: price = 100.0
+let vol:    rate  = 0.20
+let r:      rate  = 0.05
+let t:      years = 0.5
+
+let oops = spot + vol
+
+let call_price: price = black_scholes(spot, strike, vol, r, t, Call)
+let delta:      rate  = bs_delta(spot, strike, vol, r, t, Call)
+
+call_price

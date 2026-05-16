@@ -1,0 +1,30 @@
+[package]
+name = "finlang-lsp"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Language Server Protocol implementation for FinLang"
+
+[[bin]]
+name = "finlang-lsp"
+path = "src/main.rs"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+finlang-lexer  = { workspace = true }
+finlang-parser = { workspace = true }
+finlang-types  = { workspace = true }
+
+tower-lsp      = { workspace = true }
+tokio          = { workspace = true }
+serde          = { workspace = true }
+serde_json     = { workspace = true }
+dashmap        = { workspace = true }
+ropey          = { workspace = true }
+anyhow         = { workspace = true }
+thiserror      = { workspace = true }

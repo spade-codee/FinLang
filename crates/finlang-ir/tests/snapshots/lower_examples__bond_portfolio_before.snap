@@ -1,0 +1,27 @@
+---
+source: crates/finlang-ir/tests/lower_examples.rs
+expression: prog.to_string()
+---
+fn __main__() -> f64 {
+  bb0:
+    v0 = const.f64 1000
+    v1 = const.f64 0.05
+    v2 = const.f64 0.04
+    v3 = const.i64 10
+    v4 = call finlang_bond_price(v0, v1, v2, v3)
+    v5 = const.f64 10000
+    v6 = const.f64 0.03
+    v7 = const.f64 0.035
+    v8 = const.i64 20
+    v9 = call finlang_bond_price(v5, v6, v7, v8)
+    v10 = binop.add v4, v9
+    v11 = const.f64 1
+    v12 = const.f64 10000
+    v13 = binop.div v11, v12
+    v14 = const.i64 10
+    v15 = call finlang_pv01(v0, v1, v2, v14)
+    v16 = const.i64 20
+    v17 = call finlang_pv01(v5, v6, v7, v16)
+    v18 = binop.add v15, v17
+    return v10
+}

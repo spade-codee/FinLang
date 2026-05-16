@@ -1,0 +1,504 @@
+---
+source: crates/finlang-lexer/tests/snapshot.rs
+expression: tokens
+---
+- node: Let
+  span:
+    start: 309
+    end: 312
+- node:
+    Ident: spot
+  span:
+    start: 313
+    end: 317
+- node: Colon
+  span:
+    start: 317
+    end: 318
+- node: Price
+  span:
+    start: 322
+    end: 327
+- node: Eq
+  span:
+    start: 328
+    end: 329
+- node:
+    FloatLit: 100
+  span:
+    start: 330
+    end: 335
+- node: Let
+  span:
+    start: 336
+    end: 339
+- node:
+    Ident: strike
+  span:
+    start: 340
+    end: 346
+- node: Colon
+  span:
+    start: 346
+    end: 347
+- node: Price
+  span:
+    start: 349
+    end: 354
+- node: Eq
+  span:
+    start: 355
+    end: 356
+- node:
+    FloatLit: 100
+  span:
+    start: 357
+    end: 362
+- node: Let
+  span:
+    start: 363
+    end: 366
+- node:
+    Ident: vol
+  span:
+    start: 367
+    end: 370
+- node: Colon
+  span:
+    start: 370
+    end: 371
+- node: Rate
+  span:
+    start: 376
+    end: 380
+- node: Eq
+  span:
+    start: 382
+    end: 383
+- node:
+    FloatLit: 0.2
+  span:
+    start: 384
+    end: 388
+- node: Let
+  span:
+    start: 389
+    end: 392
+- node:
+    Ident: r
+  span:
+    start: 393
+    end: 394
+- node: Colon
+  span:
+    start: 394
+    end: 395
+- node: Rate
+  span:
+    start: 402
+    end: 406
+- node: Eq
+  span:
+    start: 408
+    end: 409
+- node:
+    FloatLit: 0.03
+  span:
+    start: 410
+    end: 414
+- node: Let
+  span:
+    start: 415
+    end: 418
+- node:
+    Ident: t
+  span:
+    start: 419
+    end: 420
+- node: Colon
+  span:
+    start: 420
+    end: 421
+- node: Years
+  span:
+    start: 428
+    end: 433
+- node: Eq
+  span:
+    start: 434
+    end: 435
+- node:
+    FloatLit: 0.25
+  span:
+    start: 436
+    end: 440
+- node: Let
+  span:
+    start: 441
+    end: 444
+- node:
+    Ident: z_95
+  span:
+    start: 445
+    end: 449
+- node: Colon
+  span:
+    start: 449
+    end: 450
+- node: Rate
+  span:
+    start: 454
+    end: 458
+- node: Eq
+  span:
+    start: 460
+    end: 461
+- node:
+    FloatLit: 1.645
+  span:
+    start: 462
+    end: 467
+- node: Let
+  span:
+    start: 469
+    end: 472
+- node:
+    Ident: delta
+  span:
+    start: 473
+    end: 478
+- node: Colon
+  span:
+    start: 478
+    end: 479
+- node: Rate
+  span:
+    start: 482
+    end: 486
+- node: Eq
+  span:
+    start: 488
+    end: 489
+- node:
+    Ident: bs_delta
+  span:
+    start: 490
+    end: 498
+- node: LParen
+  span:
+    start: 498
+    end: 499
+- node:
+    Ident: spot
+  span:
+    start: 499
+    end: 503
+- node: Comma
+  span:
+    start: 503
+    end: 504
+- node:
+    Ident: strike
+  span:
+    start: 505
+    end: 511
+- node: Comma
+  span:
+    start: 511
+    end: 512
+- node:
+    Ident: vol
+  span:
+    start: 513
+    end: 516
+- node: Comma
+  span:
+    start: 516
+    end: 517
+- node:
+    Ident: r
+  span:
+    start: 518
+    end: 519
+- node: Comma
+  span:
+    start: 519
+    end: 520
+- node:
+    Ident: t
+  span:
+    start: 521
+    end: 522
+- node: Comma
+  span:
+    start: 522
+    end: 523
+- node: Call
+  span:
+    start: 524
+    end: 528
+- node: RParen
+  span:
+    start: 528
+    end: 529
+- node: Let
+  span:
+    start: 530
+    end: 533
+- node:
+    Ident: one_day
+  span:
+    start: 534
+    end: 541
+- node: Colon
+  span:
+    start: 541
+    end: 542
+- node: Years
+  span:
+    start: 543
+    end: 548
+- node: Eq
+  span:
+    start: 549
+    end: 550
+- node:
+    FloatLit: 1
+  span:
+    start: 551
+    end: 554
+- node: Slash
+  span:
+    start: 555
+    end: 556
+- node:
+    FloatLit: 252
+  span:
+    start: 557
+    end: 562
+- node: Let
+  span:
+    start: 623
+    end: 626
+- node:
+    Ident: position
+  span:
+    start: 627
+    end: 635
+- node: Colon
+  span:
+    start: 635
+    end: 636
+- node: Notional
+  span:
+    start: 637
+    end: 645
+- node: Eq
+  span:
+    start: 646
+    end: 647
+- node:
+    FloatLit: 1000
+  span:
+    start: 648
+    end: 654
+- node: As
+  span:
+    start: 655
+    end: 657
+- node: Notional
+  span:
+    start: 658
+    end: 666
+- node: Let
+  span:
+    start: 667
+    end: 670
+- node:
+    Ident: move_size
+  span:
+    start: 671
+    end: 680
+- node: Colon
+  span:
+    start: 680
+    end: 681
+- node: Rate
+  span:
+    start: 682
+    end: 686
+- node: Eq
+  span:
+    start: 690
+    end: 691
+- node:
+    Ident: vol
+  span:
+    start: 692
+    end: 695
+- node: Star
+  span:
+    start: 696
+    end: 697
+- node:
+    Ident: z_95
+  span:
+    start: 698
+    end: 702
+- node: Let
+  span:
+    start: 703
+    end: 706
+- node:
+    Ident: var_95
+  span:
+    start: 707
+    end: 713
+- node: Colon
+  span:
+    start: 713
+    end: 714
+- node: Price
+  span:
+    start: 718
+    end: 723
+- node: Eq
+  span:
+    start: 726
+    end: 727
+- node: LParen
+  span:
+    start: 728
+    end: 729
+- node:
+    Ident: position
+  span:
+    start: 729
+    end: 737
+- node: Star
+  span:
+    start: 738
+    end: 739
+- node:
+    Ident: delta
+  span:
+    start: 740
+    end: 745
+- node: RParen
+  span:
+    start: 745
+    end: 746
+- node: Star
+  span:
+    start: 747
+    end: 748
+- node:
+    Ident: move_size
+  span:
+    start: 749
+    end: 758
+- node: Portfolio
+  span:
+    start: 760
+    end: 769
+- node:
+    Ident: HedgedBook
+  span:
+    start: 770
+    end: 780
+- node: LBrace
+  span:
+    start: 781
+    end: 782
+- node: Long
+  span:
+    start: 785
+    end: 789
+- node:
+    FloatLit: 1000
+  span:
+    start: 791
+    end: 797
+- node: As
+  span:
+    start: 798
+    end: 800
+- node: Notional
+  span:
+    start: 801
+    end: 809
+- node:
+    Ident: calls
+  span:
+    start: 811
+    end: 816
+- node: At
+  span:
+    start: 823
+    end: 825
+- node:
+    Ident: strike
+  span:
+    start: 826
+    end: 832
+- node: Eq
+  span:
+    start: 833
+    end: 834
+- node:
+    FloatLit: 100
+  span:
+    start: 835
+    end: 840
+- node: As
+  span:
+    start: 841
+    end: 843
+- node: Price
+  span:
+    start: 844
+    end: 849
+- node: Short
+  span:
+    start: 852
+    end: 857
+- node:
+    FloatLit: 500
+  span:
+    start: 859
+    end: 864
+- node: As
+  span:
+    start: 865
+    end: 867
+- node: Notional
+  span:
+    start: 868
+    end: 876
+- node:
+    Ident: underlying
+  span:
+    start: 878
+    end: 888
+- node: At
+  span:
+    start: 890
+    end: 892
+- node:
+    Ident: spot
+  span:
+    start: 893
+    end: 897
+- node: RBrace
+  span:
+    start: 898
+    end: 899
+- node:
+    Ident: var_95
+  span:
+    start: 901
+    end: 907
+- node: Eof
+  span:
+    start: 908
+    end: 908

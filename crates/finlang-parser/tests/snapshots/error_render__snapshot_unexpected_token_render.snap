@@ -1,0 +1,9 @@
+---
+source: crates/finlang-parser/tests/error_render.rs
+expression: rendered
+---
+error: expected expression, found ';'
+  ┌─ test.fin:1:9
+  │
+1 │ let x = ;
+  │         ^ unexpected token here

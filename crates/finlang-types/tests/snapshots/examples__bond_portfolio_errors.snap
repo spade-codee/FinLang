@@ -1,0 +1,5 @@
+---
+source: crates/finlang-types/tests/examples.rs
+expression: result.errors
+---
+[]

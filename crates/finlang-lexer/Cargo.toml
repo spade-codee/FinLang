@@ -1,0 +1,28 @@
+[package]
+name = "finlang-lexer"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Lexer for the FinLang financial risk DSL"
+
+[lib]
+path = "src/lib.rs"
+
+[features]
+## Enable `serde::{Serialize, Deserialize}` impls on public token types.
+## Required by the snapshot test suite and by downstream crates that
+## serialise token streams (e.g. the LSP server).
+serde = ["dep:serde"]
+
+[dependencies]
+logos     = { workspace = true }
+thiserror = { workspace = true }
+serde     = { workspace = true, optional = true }
+
+[dev-dependencies]
+insta = { workspace = true }
+# Snapshot tests require serde support.
+finlang-lexer = { path = ".", features = ["serde"] }

@@ -1,0 +1,24 @@
+// option_pricing.fin
+//
+// Prices a single European call using Black-Scholes and reports the
+// first-order Greeks. Reference values (computed with QuantLib):
+//
+//   call_price = 7.965567
+//   delta      = 0.636831
+//   gamma      = 0.018762
+//   vega       = 18.762327
+//
+// Integration test asserts these to 4 decimal places.
+
+let spot:   price = 105.0
+let strike: price = 100.0
+let vol:    rate  = 0.20
+let r:      rate  = 0.05
+let t:      years = 0.5
+
+let call_price: price = black_scholes(spot, strike, vol, r, t, Call)
+let delta:      rate  = bs_delta(spot, strike, vol, r, t, Call)
+let gamma:      rate  = bs_gamma(spot, strike, vol, r, t)
+let vega:       price = bs_vega(spot, strike, vol, r, t)
+
+call_price

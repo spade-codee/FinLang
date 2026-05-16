@@ -1,0 +1,19 @@
+---
+source: crates/finlang-ir/tests/lower_examples.rs
+expression: prog.to_string()
+---
+fn __main__() -> f64 {
+  bb0:
+    v0 = const.f64 105
+    v1 = const.f64 100
+    v2 = const.f64 0.2
+    v3 = const.f64 0.05
+    v4 = const.f64 0.5
+    v5 = const.i64 0 ; Call
+    v6 = call finlang_black_scholes(v0, v1, v2, v3, v4, v5)
+    v7 = const.i64 0 ; Call
+    v8 = call finlang_bs_delta(v0, v1, v2, v3, v4, v7)
+    v9 = call finlang_bs_gamma(v0, v1, v2, v3, v4)
+    v10 = call finlang_bs_vega(v0, v1, v2, v3, v4)
+    return v6
+}

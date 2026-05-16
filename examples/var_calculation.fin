@@ -1,0 +1,31 @@
+// var_calculation.fin
+//
+// Simple delta-normal VaR for a long-call book. The point of this example
+// is the `portfolio` block — FinLang's only construct that aggregates legs
+// and exposes the result as a single `price` value.
+//
+// Reference value (z = 1.645, 1-day, 20% vol):
+//
+//   var_95 = 17.3262
+
+let spot:    price = 100.0
+let strike:  price = 100.0
+let vol:     rate  = 0.20
+let r:       rate  = 0.03
+let t:       years = 0.25
+let z_95:    rate  = 1.645
+
+let delta:   rate  = bs_delta(spot, strike, vol, r, t, Call)
+let one_day: years = 1.0 / 252.0
+
+// Delta-normal VaR: notional × |Δ| × σ × √Δt × z
+let position: notional = 1000.0 as notional
+let move_size: rate    = vol * z_95
+let var_95:    price   = (position * delta) * move_size
+
+portfolio HedgedBook {
+  long  1000.0 as notional  calls       at strike = 100.0 as price
+  short  500.0 as notional  underlying  at spot
+}
+
+var_95
