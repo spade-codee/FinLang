@@ -83,41 +83,41 @@ FinLang semantics).
 
 ## Crates
 
-| Crate              | Responsibility                                       |
-|--------------------|------------------------------------------------------|
-| `finlang-lexer`    | logos-based tokeniser; `Token` + `Spanned<T>`.       |
-| `finlang-parser`   | Hand-written recursive-descent parser with recovery. |
-| `finlang-types`    | Dimensional analysis, 218-rule lookup, scope stack.  |
-| `finlang-ir`       | SSA IR, constant folding, DCE, SSA validation.       |
-| `finlang-codegen`  | Cranelift JIT (`JitEngine`) + AOT (`AotEngine`).     |
-| `finlang-stdlib`   | Black-Scholes, Greeks, bond pricing, IV solver.      |
-| `finlang-cli`      | `finlang` driver: `repl`, `run`, `compile`, `check`. |
-| `finlang-lsp`      | Language Server Protocol implementation.             |
+| Crate             | Responsibility                                       |
+| ----------------- | ---------------------------------------------------- |
+| `finlang-lexer`   | logos-based tokeniser; `Token` + `Spanned<T>`.       |
+| `finlang-parser`  | Hand-written recursive-descent parser with recovery. |
+| `finlang-types`   | Dimensional analysis, 218-rule lookup, scope stack.  |
+| `finlang-ir`      | SSA IR, constant folding, DCE, SSA validation.       |
+| `finlang-codegen` | Cranelift JIT (`JitEngine`) + AOT (`AotEngine`).     |
+| `finlang-stdlib`  | Black-Scholes, Greeks, bond pricing, IV solver.      |
+| `finlang-cli`     | `finlang` driver: `repl`, `run`, `compile`, `check`. |
+| `finlang-lsp`     | Language Server Protocol implementation.             |
 
 ## Standard library
 
-| Function                                                        | Returns |
-|-----------------------------------------------------------------|---------|
-| `black_scholes(spot, strike, vol, r, t, opt)`                   | `price` |
-| `bs_delta(spot, strike, vol, r, t, opt)`                        | `rate`  |
-| `bs_gamma(spot, strike, vol, r, t)`                             | `rate`  |
-| `bs_vega(spot, strike, vol, r, t)`                              | `price` |
-| `bs_theta(spot, strike, vol, r, t, opt)`                        | `price` |
-| `bs_rho(spot, strike, vol, r, t, opt)`                          | `price` |
-| `implied_vol(target_price, spot, strike, r, t, opt)`            | `rate`  |
-| `bond_price(face, coupon, ytm, periods)`                        | `price` |
-| `bond_duration(face, coupon, ytm, periods)`                     | `years` |
-| `pv01(face, coupon, ytm, periods)`                              | `price` |
-| `discount_factor(r, t)`                                         | `rate`  |
+| Function                                             | Returns |
+| ---------------------------------------------------- | ------- |
+| `black_scholes(spot, strike, vol, r, t, opt)`        | `price` |
+| `bs_delta(spot, strike, vol, r, t, opt)`             | `rate`  |
+| `bs_gamma(spot, strike, vol, r, t)`                  | `rate`  |
+| `bs_vega(spot, strike, vol, r, t)`                   | `price` |
+| `bs_theta(spot, strike, vol, r, t, opt)`             | `price` |
+| `bs_rho(spot, strike, vol, r, t, opt)`               | `price` |
+| `implied_vol(target_price, spot, strike, r, t, opt)` | `rate`  |
+| `bond_price(face, coupon, ytm, periods)`             | `price` |
+| `bond_duration(face, coupon, ytm, periods)`          | `years` |
+| `pv01(face, coupon, ytm, periods)`                   | `price` |
+| `discount_factor(r, t)`                              | `rate`  |
 
-* Black-Scholes uses **continuously-compounded** rates and lognormal vol;
+- Black-Scholes uses **continuously-compounded** rates and lognormal vol;
   `t` is in years.
-* Bond functions use **annual discrete compounding**; `periods` is an
+- Bond functions use **annual discrete compounding**; `periods` is an
   integer count of full years.
-* Greeks are returned in natural per-unit form (vega per unit vol, theta
+- Greeks are returned in natural per-unit form (vega per unit vol, theta
   per year, rho per unit rate). Multiply / divide explicitly to switch to
   basis-point or per-day conventions.
-* All numerics are routed through `libm` (`exp`, `log`, `sqrt`, `erf`,
+- All numerics are routed through `libm` (`exp`, `log`, `sqrt`, `erf`,
   `pow`) so results are bit-reproducible across host platforms.
 
 ## Tooling
@@ -134,29 +134,29 @@ finlang check  file.fin           # parse + typecheck only
 The REPL supports persistent history (`~/.finlang_history`), multiline
 brace-balanced input, and the following dot-commands:
 
-| Command          | Behaviour                                        |
-|------------------|--------------------------------------------------|
-| `:type <expr>`   | Print the inferred `FinType`.                    |
-| `:ir <expr>`     | Print the optimised SSA IR.                      |
-| `:bench <expr>`  | JIT compile, run for ~1 s, report throughput.    |
-| `:load <path>`   | Read a file and evaluate its contents.           |
-| `:help`          | Command reference.                               |
-| `:quit`          | Exit the REPL (`Ctrl-D` also works).             |
+| Command         | Behaviour                                     |
+| --------------- | --------------------------------------------- |
+| `:type <expr>`  | Print the inferred `FinType`.                 |
+| `:ir <expr>`    | Print the optimised SSA IR.                   |
+| `:bench <expr>` | JIT compile, run for ~1 s, report throughput. |
+| `:load <path>`  | Read a file and evaluate its contents.        |
+| `:help`         | Command reference.                            |
+| `:quit`         | Exit the REPL (`Ctrl-D` also works).          |
 
 ### Language Server
 
 `finlang-lsp` speaks LSP over stdio and is consumed by the bundled VS Code
 extension at `editor/vscode/`. Supported requests:
 
-* `textDocument/didOpen` / `didChange` / `didClose`
-* `publishDiagnostics` — every parse error and type error mapped to a
+- `textDocument/didOpen` / `didChange` / `didClose`
+- `publishDiagnostics` — every parse error and type error mapped to a
   precise UTF-16 column range.
-* `textDocument/hover` — shows the inferred `FinType` for the expression
+- `textDocument/hover` — shows the inferred `FinType` for the expression
   under the cursor.
-* `textDocument/completion` — keywords, financial types, `Call`/`Put`,
+- `textDocument/completion` — keywords, financial types, `Call`/`Put`,
   every stdlib function (with signature + short doc), and every in-file
   identifier.
-* `textDocument/definition` — jumps to the matching `let` / `fn` /
+- `textDocument/definition` — jumps to the matching `let` / `fn` /
   `portfolio` declaration.
 
 ### VS Code extension
@@ -190,13 +190,13 @@ function pointer that must be `transmute`d before invocation. Every
 Captured on Windows 11 x86-64 (Cranelift 0.111). Full details and
 methodology in [`benches/BENCHMARKS.md`](benches/BENCHMARKS.md).
 
-| Bench                                | Median   | Throughput     |
-|--------------------------------------|----------|----------------|
-| `jit_run/option_pricing`             | ≈ 161 ns | ≈ 6.2 M ops/s  |
-| `jit_run/var_calculation`            | ≈ 31 ns  | ≈ 32 M ops/s   |
-| `jit_run/bond_portfolio`             | ≈ 1.81 µs| ≈ 553 K ops/s  |
-| `full_compile/option_pricing`        | ≈ 247 µs | one-shot       |
-| `native_baseline/option_pricing`     | ≈ 71 ns  | ≈ 14 M ops/s   |
+| Bench                            | Median    | Throughput    |
+| -------------------------------- | --------- | ------------- |
+| `jit_run/option_pricing`         | ≈ 161 ns  | ≈ 6.2 M ops/s |
+| `jit_run/var_calculation`        | ≈ 31 ns   | ≈ 32 M ops/s  |
+| `jit_run/bond_portfolio`         | ≈ 1.81 µs | ≈ 553 K ops/s |
+| `full_compile/option_pricing`    | ≈ 247 µs  | one-shot      |
+| `native_baseline/option_pricing` | ≈ 71 ns   | ≈ 14 M ops/s  |
 
 For the typical "Python + NumPy" reference of ≈ 5–10 µs per
 Black-Scholes evaluation, FinLang's JIT at ≈ 160 ns is roughly
@@ -211,11 +211,11 @@ numerical output matches the safe-Rust reference to within `1e-9`.
 
 ## Examples
 
-| Example                          | Demonstrates                                  |
-|----------------------------------|-----------------------------------------------|
-| `examples/option_pricing.fin`    | Black-Scholes call + first-order Greeks.      |
-| `examples/bond_portfolio.fin`    | Multi-bond PV with explicit dimensional math. |
-| `examples/var_calculation.fin`   | Delta-normal VaR + a `portfolio` block.       |
+| Example                        | Demonstrates                                  |
+| ------------------------------ | --------------------------------------------- |
+| `examples/option_pricing.fin`  | Black-Scholes call + first-order Greeks.      |
+| `examples/bond_portfolio.fin`  | Multi-bond PV with explicit dimensional math. |
+| `examples/var_calculation.fin` | Delta-normal VaR + a `portfolio` block.       |
 
 ## Project layout
 
@@ -242,4 +242,4 @@ numerical output matches the safe-Rust reference to within `1e-9`.
 
 ## License
 
-MIT.
+APACHE 2.0.
