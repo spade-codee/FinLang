@@ -1,0 +1,4 @@
+# Byte-offset snapshots must see identical source bytes on every platform.
+* text=auto
+*.fin text eol=lf
+*.snap text eol=lf
