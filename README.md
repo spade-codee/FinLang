@@ -163,13 +163,18 @@ extension at `editor/vscode/`. Supported requests:
 
 ```sh
 cd editor/vscode
-npm install
+npm ci
 npm run compile
-code --install-extension finlang-0.1.0.vsix
 ```
 
 (`finlang-lsp` must be on `PATH`, or set `finlang.server.path` in the
 VS Code settings.)
+
+To try the extension from source, open `editor/vscode` in VS Code and run
+the **Debug: Start Extension Host** command after compiling. Dependencies
+and compiled JavaScript are generated locally; only source files and the
+package lockfile are version-controlled. Use `npm ci` after cloning or
+when the lockfile changes to reproduce the dependency versions.
 
 ## Build
 

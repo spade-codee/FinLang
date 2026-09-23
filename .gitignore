@@ -1,4 +1,7 @@
 /target
+/editor/vscode/node_modules/
+/editor/vscode/out/
+/editor/vscode/*.vsix
 **/*.rs.bk
 Cargo.lock.bak
 *.pdb
